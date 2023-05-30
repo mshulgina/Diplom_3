@@ -6,14 +6,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import static org.junit.Assert.assertTrue;
 
-@RunWith(Parameterized.class)
 public class LogInTest {
     private WebDriver driver;
     private UserClient userClient;
@@ -26,18 +22,6 @@ public class LogInTest {
     private int count = 10;
     private boolean checkNeedSetYandexDriver;
 
-    public LogInTest(boolean temp) {
-        this.checkNeedSetYandexDriver = checkNeedSetYandexDriver;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] testData() {
-        return new Object[][] {
-                {false},
-                {true},
-        };
-    }
-
     @Before
     public void startUp() {
         name = RandomStringUtils.randomAlphabetic(count);
@@ -49,7 +33,7 @@ public class LogInTest {
         accessToken = responseCreate.extract().path("accessToken");
         if (checkNeedSetYandexDriver) {
             System.setProperty("webdriver.chrome.driver",
-                    "c:\\Users\\Public\\Java\\QADiplomChapterThree\\Diplom_3\\src\\main\\resources\\yandexdriver.exe");
+                    "src\\main\\resources\\yandexdriver.exe");
         }
         driver = new ChromeDriver();
         page = new MainPage(driver);

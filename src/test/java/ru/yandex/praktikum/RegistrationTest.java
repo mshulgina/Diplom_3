@@ -5,17 +5,13 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.remote.Augmenter;
-
 import static org.junit.Assert.assertTrue;
 
-@RunWith(Parameterized.class)
 public class RegistrationTest {
     private WebDriver driver;
     private UserClient userClient;
@@ -27,17 +23,6 @@ public class RegistrationTest {
     private int count = 10;
     private int countForPasswordIncorrect = 1;
     private boolean checkNeedSetYandexDriver;
-
-    public RegistrationTest(boolean checkNeedSetYandexDriver) {
-        this.checkNeedSetYandexDriver = checkNeedSetYandexDriver;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] testData() {
-        return new Object[][] {
-                {false}
-        };
-    }
 
     @Before
     public void startUp() {

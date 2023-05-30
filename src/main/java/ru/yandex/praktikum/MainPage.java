@@ -24,6 +24,8 @@ public class MainPage {
 
     public MainPage clickSousButton() {
         if (driver.findElement(pageObject.buttonSous).isDisplayed()) {
+            new WebDriverWait(driver, 2000)
+                    .until(ExpectedConditions.elementToBeClickable(pageObject.buttonSous));
             driver.findElement(pageObject.buttonSous).click();
         }
         new WebDriverWait(driver, 2000)
@@ -37,6 +39,8 @@ public class MainPage {
 
     public MainPage clickBulksButton() {
         if (driver.findElement(pageObject.buttonBulks).isDisplayed()) {
+            new WebDriverWait(driver, 2000)
+                    .until(ExpectedConditions.elementToBeClickable(pageObject.buttonBulks));
             driver.findElement(pageObject.buttonBulks).click();
         }
         new WebDriverWait(driver, 2000)

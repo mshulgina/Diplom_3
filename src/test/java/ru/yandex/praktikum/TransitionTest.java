@@ -4,30 +4,15 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertTrue;
 
-@RunWith(Parameterized.class)
 public class TransitionTest {
 
     private WebDriver driver;
     private MainPage page;
-    private int count = 10;
     private boolean checkNeedSetYandexDriver;
-
-    public TransitionTest(boolean checkNeedSetYandexDriver) {
-        this.checkNeedSetYandexDriver = checkNeedSetYandexDriver;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] testData() {
-        return new Object[][] {
-                {false}
-        };
-    }
 
     @Before
     public void startUp() {
