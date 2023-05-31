@@ -22,14 +22,10 @@ public class RegistrationTest {
     private String passwordIncorrect;
     private int count = 10;
     private int countForPasswordIncorrect = 1;
-    private boolean checkNeedSetYandexDriver;
 
     @Before
     public void startUp() {
-        if (checkNeedSetYandexDriver) {
-            System.setProperty("webdriver.chrome.driver",
-                    "src\\main\\resources\\yandexdriver.exe");
-        }
+
         driver = new ChromeDriver();
         userClient = new UserClient();
         page = new MainPage(driver);

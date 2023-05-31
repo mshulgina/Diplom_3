@@ -20,7 +20,6 @@ public class LogInTest {
     private String password;
     private String accessToken;
     private int count = 10;
-    private boolean checkNeedSetYandexDriver;
 
     @Before
     public void startUp() {
@@ -31,10 +30,6 @@ public class LogInTest {
         userClient = new UserClient();
         ValidatableResponse responseCreate = userClient.createUser(user);
         accessToken = responseCreate.extract().path("accessToken");
-        if (checkNeedSetYandexDriver) {
-            System.setProperty("webdriver.chrome.driver",
-                    "src\\main\\resources\\yandexdriver.exe");
-        }
         driver = new ChromeDriver();
         page = new MainPage(driver);
     }

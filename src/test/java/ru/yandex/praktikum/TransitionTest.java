@@ -12,14 +12,9 @@ public class TransitionTest {
 
     private WebDriver driver;
     private MainPage page;
-    private boolean checkNeedSetYandexDriver;
 
     @Before
     public void startUp() {
-        if (checkNeedSetYandexDriver) {
-            System.setProperty("webdriver.chrome.driver",
-                    "src\\main\\resources\\yandexdriver.exe");
-        }
         driver = new ChromeDriver();
         page = new MainPage(driver);
     }
